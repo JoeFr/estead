@@ -1,0 +1,87 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title is-1">
+                Projects {{ projects.count }}
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="field is-grouped my-3">
+        <a href="{% url 'projects:create_project' %}">
+            <button class="button is-success">
+            <span class="icon is-small">
+              <i class="fas fa-plus"></i>
+            </span>
+                <span>New Project</span>
+            </button>
+        </a>
+
+    </div>
+</section>
+
+<section>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><i class="fas fa-arrows-alt-v"></i></th>
+            <th>Order</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Assignee</th>
+            <th>Tags</th>
+            <th>Tasks</th>
+            <th><i class="fas fa-pen"></i></th>
+            <th><i class="fas fa-trash"></i></th>
+        </tr>
+        </thead>
+        <tbody id="projects">
+        {% for project in project_list %}
+        <tr data-lookup="{{ folder.lookup_id }}">
+            <td>
+                <span class="handle"></span>
+            </td>
+            <td>{{ project.order }}</td>
+            <td>
+                <a href="{% url 'projects:project' project.pk %}">{{ project.title }}</a>
+            </td>
+            <td>
+                {{ project.description }}
+            </td>
+            <td>
+                <span class="tag {{ project.status.icon }}">{{ project.status }}</span>
+            </td>
+            <td>
+                <span class="tag">{{ project.assignee }}</span>
+            </td>
+            <td>
+                <span class="tag">{% for tag in project.tags.all %}{{ tag.title }}{% endfor %}</span>
+            </td>
+            <td>
+                <div class="tags has-addons">
+                    <span class="tag is-dark">{{ project.task_project.all|length }}</span>
+                    <span class="tag is-success">?</span>
+                </div>
+            </td>
+            <td>
+                <a href="{% url 'projects:edit_project' project.pk %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'projects:delete_project' project.pk %}">Delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+
+{% endblock %}

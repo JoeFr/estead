@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+
+{% block content %}
+    <section>
+        <h1 class="title">Create Project</h1>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form|bulma }}
+            <button type="submit" class="button is-link">Create</button>
+        </form>
+    </section>
+{% endblock %}

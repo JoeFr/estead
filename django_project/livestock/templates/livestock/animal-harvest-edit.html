@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+
+{% block content %}
+    <section>
+        <h1 class="title">Edit {{ animal_harvest.animal.title }} - {{ animal_harvest.type.title }}</h1>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form|bulma }}
+            <button type="submit" class="button is-link">Save</button>
+        </form>
+    </section>
+{% endblock %}

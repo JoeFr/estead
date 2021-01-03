@@ -1,0 +1,170 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% block content %}
+    <h1 class="title is-1">Project: {{ project.title }} <span class="tag {{ project.status.icon }}">{{ project.status }}</span></h1>
+<a href="{% url 'projects:edit_project' project.pk %}">Edit</a>
+    <p>{{ project.description }}</p>
+    <p>Start date: {{ project.start_date }}</p>
+    {% if project.deadline_date %}<p>Deadline: {{ project.deadline_date }}</p>{% endif %}
+    <p>End date: {% if project.end_date %}{{ project.end_date }}{% else %} Still going{% endif %}</p>
+<p>Project Duration: {{ project.start_date|timesince }}</p>
+    <p>Time to go: {{ project.deadline_date|timeuntil:project.start_date }}</p>
+    <p>Assignee: {{ project.assignee }}</p>
+    <p>Completed: {{ project.completed }}</p>
+
+<div class="tabs is-centered is-boxed" id="tabs">
+  <ul>
+    <li class="is-active tab-nav" data-tab="1">
+      <a>
+        <span class="icon is-small"><i class="fa fa-list"></i></span>
+        <span>Tasks ({{ project.task_project.all|length }})</span>
+      </a>
+    </li>
+    <li class="tab-nav">
+      <a>
+        <span class="icon is-small"><i class="fa fa-info"></i></span>
+        <span>Details</span>
+      </a>
+    </li>
+    <li class="tab-nav">
+      <a>
+        <span class="icon is-small"><i class="fas fa-receipt"></i></span>
+        <span>Expenses</span>
+      </a>
+    </li>
+    <li class="tab-nav">
+      <a>
+        <span class="icon is-small"><i class="fa fa-image"></i></span>
+        <span>Images</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="tab-contents">
+  <div class="is-active tab-content">
+    <h2 class="title is-2">Tasks</h2>
+        <div class="field is-grouped my-3">
+        <a href="{% url 'projects:create_task' %}">
+            <button class="button is-primary">
+            <span class="icon is-small">
+              <i class="fas fa-plus"></i>
+            </span>
+            <span>Task</span>
+          </button>
+        </a>
+        </div>
+
+        <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Assignee</th>
+                    <th>Completed</th>
+            {% for task in project.task_project.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'projects:task' task.pk %}">{{ task.title }}</a>
+                </td>
+                <td>
+                    {{ task.description }}
+                </td>
+                <td>
+                    <span class="tag {{ task.status.icon }}">{{ task.status }}</span>
+                </td>
+                <td>
+                    <span class="tag">{{ task.assignee }}</span>
+                </td>
+                <td>
+                    {{ task.completed }}
+                </td>
+                    <td>
+                        <a href="{% url 'projects:edit_task' task.pk %}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'projects:delete_task' task.pk %}">Delete</a>
+                    </td>
+            </tr>
+        {% endfor %}
+        </table>
+  </div>
+  <div class="tab-content">
+    Music
+  </div>
+  <div class="tab-content">
+      <h2 class="title is-2">Expenses</h2>
+        <div class="field is-grouped my-3">
+        <a href="{% url 'finances:create_expense' %}">
+            <button class="button is-primary">
+            <span class="icon is-small">
+              <i class="fas fa-plus"></i>
+            </span>
+            <span>Expense</span>
+          </button>
+        </a>
+        </div>
+    <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Supplier</th>
+                    <th>Status</th>
+                    <th>Cost</th>
+                    <th>Date</th>
+                    <th><i class="fas fa-pen"></i></th>
+                    <th><i class="fas fa-trash"></i></th>
+            {% for expense in project.project_expense.all %}
+            <tr>
+            <td>
+                <a href="{% url 'finances:expense' expense.pk %}">{{ expense.title }}</a>
+            </td>
+            <td>
+                {{ expense.supplier }}
+            </td>
+            <td>
+                <span class="tag {{ expense.status.style }}">{{ expense.status }}</span>
+            </td>
+            <td class="has-text-right">
+                <strong>${{ expense.total }}</strong>
+            </td>
+            <td>
+                {{ expense.date }}
+            </td>
+            <td>
+                <a href="{% url 'finances:edit_expense' expense.pk %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'finances:delete_expense' expense.pk %}">Delete</a>
+            </td>
+        </tr>
+            {% endfor %}
+                <tr>
+                    <td>Budget</td>
+                    <td></td>
+                    <td></td>
+                    <td class="has-text-right"><strong style="color:{% if project.budget > expenses_sum %}green{% else %}red{% endif %}"> ${{ project.budget }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Total Expenses</td>
+                    <td></td>
+                    <td></td>
+                    <td class="has-text-right"><strong>$-{{ expenses_sum }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Budget Remaining</td>
+                    <td></td>
+                    <td></td>
+                    <td class="has-text-right"><strong>${{ project.budget|sub:expenses_sum }}</strong></td>
+                </tr>
+            </thead>
+    </table>
+  </div>
+  <div class="tab-content">
+    Documents
+  </div>
+</div>
+
+{% endblock %}

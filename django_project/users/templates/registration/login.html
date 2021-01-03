@@ -1,0 +1,24 @@
+<!--users/templates/registration/login.html-->
+{% extends 'pages/base.html' %}
+
+{% block content %}
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+  <h1 class="title">Login</h1>
+
+  <form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="field">
+    {{ form.as_p }}
+  </div>
+  <div class="field">
+    <p class="control">
+      <input type="submit" value="login" class="button is-primary">
+      <input type="hidden" name="next" value="{{ next }}">
+    </p>
+  </div>
+  </form>
+  <p><a href="{% url 'password_reset' %}">Reset password</a></p>
+</div>
+</div>
+{% endblock %}

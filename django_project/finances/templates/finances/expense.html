@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="columns">
+  <div class="column is-three-quarters">
+       <h1 class="title">Expense: {{ expense.title }}</h1>
+<p><span class="tag {{ expense.status.style }}">{{ expense.status }}</span></p>
+<p>Supplier: {{ expense.supplier }}</p>
+<p>Total: <strong>${{ expense.total }}</strong></p>
+<p>Date {{ expense.date }}</p>
+<p>Comment:</p>
+        <p>{{ expense.comment }}</p>
+  </div>
+  <div class="column">List related expenses</div>
+</div>
+{% endblock %}

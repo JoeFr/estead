@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="13973162-c8c0-464c-a75d-90988b006e61" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ihmSrLaVhBmSTtKGUvr16t5ehg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/django_project/pages/templates/pages" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/django_project/pages/templates/pages" />
+      <recent name="$PROJECT_DIR$/django_project/static/main/css" />
+      <recent name="$PROJECT_DIR$/django_project/static/main/js" />
+      <recent name="$PROJECT_DIR$/django_project/static/main" />
+      <recent name="$PROJECT_DIR$/django_project/templates/main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/django_project/static/main" />
+      <recent name="$PROJECT_DIR$/django_project/templates/main" />
+      <recent name="$PROJECT_DIR$/django_project/static" />
+      <recent name="$PROJECT_DIR$/django_project/projects/static/projects/css" />
+      <recent name="$PROJECT_DIR$/django_project/media" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13973162-c8c0-464c-a75d-90988b006e61" name="Default Changelist" comment="" />
+      <created>1602368205715</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602368205715</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="311" y="39" width="800" height="729" key="#Intentions" timestamp="1604719006331">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="311" y="39" width="800" height="729" key="#Intentions/67.27.1299.741@67.27.1299.741" timestamp="1604719006331" />
+    <state x="494" y="156" width="424" height="484" key="FileChooserDialogImpl" timestamp="1602369957060">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="494" y="156" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1602369957060" />
+    <state x="205" y="33" key="SettingsEditor" timestamp="1602369972888">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="205" y="33" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1602369972888" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1605342512880">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/67.27.1299.741@67.27.1299.741" timestamp="1605342512880" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1605342513508">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1605342513508" />
+    <state x="441" y="289" width="540" height="216" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602368709075">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="441" y="289" width="540" height="216" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1299.741@67.27.1299.741" timestamp="1602368709075" />
+  </component>
+</project>

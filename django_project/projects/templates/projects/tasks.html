@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <section>
+                <h1 class="title">
+                    Tasks
+                </h1>
+    </section>
+
+    <section>
+        <div class="field is-grouped my-3">
+        <a href="{% url 'projects:create_task' %}">
+            <button class="button is-success">
+            <span class="icon is-small">
+              <i class="fas fa-plus"></i>
+            </span>
+            <span>New Task</span>
+          </button>
+        </a>
+        </div>
+    </section>
+
+    <section>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><i class="far fa-check-circle"></i></th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Assignee</th>
+                    <th>Project</th>
+            <th><i class="fas fa-pen"></i></th>
+            <th><i class="fas fa-trash"></i></th>
+            {% for task in task_list %}
+            <tr>
+                <td>
+                     {% if task.completed == True %}
+                    <span class="icon has-text-success">
+                            <i class="far fa-check-circle"></i>
+                    </span>
+                        {% else %}
+                        <span class="icon has-text-danger">
+                            <i class="far fa-circle"></i>
+                    </span>
+                        {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'projects:task' task.pk %}">{{ task.title }}</a>
+                </td>
+                <td>
+                    {{ task.description }}
+                </td>
+                <td>
+                    <span class="tag {{ task.status.icon }}">{{ task.status }}</span>
+                </td>
+                <td>
+                    <span class="tag">{{ task.assignee }}</span>
+                </td>
+                <td>
+                    <a href="">{{ task.project.title }}</a>
+                </td>
+                    <td>
+                        <a href="{% url 'projects:edit_task' task.pk %}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'projects:delete_task' task.pk %}">Delete</a>
+                    </td>
+            </tr>
+        {% endfor %}
+        </table>
+    </section>
+{% endblock %}

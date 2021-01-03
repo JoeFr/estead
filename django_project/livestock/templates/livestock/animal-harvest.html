@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <h1 class="title">Harvest: {{ animal_harvest.title }}</h1>
+        <p>Animal: {{ animal_harvest.animal.title }}</p>
+        <p>Meat Type: {{ animal_harvest.type.title }}</p>
+        <p>Weight: {{ animal_harvest.weight }}</p>
+        <p>Count: {{ animal_harvest.count }}</p>
+        <p>Packages: {{ animal_harvest.packages }}</p>
+    </div>
+{% endblock %}
