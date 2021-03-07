@@ -1,15 +1,18 @@
 {% extends 'main/base.html' %}
 {% load static %}
-{% load bulma_tags %}
+{% load bootstrap4 %}
 
 {% block content %}
     <section>
         <h1 class="title">Create Animal</h1>
         <form method="post" novalidate>
             {% csrf_token %}
-            {{ form|bulma }}
-            <!-- add animal icons to select them, eg Pig, Chicken, Cow, etc. -->
-            <button type="submit" class="button is-link">Create</button>
+            {% bootstrap_form form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-primary">
+              Create
+            </button>
+          {% endbuttons %}
         </form>
     </section>
 {% endblock %}

@@ -6,7 +6,7 @@ from . import views
 app_name = "livestock"
 
 urlpatterns = [
-    path('animals/', login_required(views.AnimalList.as_view(), login_url='/accounts/login/'), name='animals'),
+    path('', login_required(views.AnimalList.as_view(), login_url='/accounts/login/'), name='animals'),
     path('animals/<int:pk>/', login_required(views.AnimalDetailView.as_view(), login_url='/accounts/login/'), name='animal'),
     path('animals/edit/<int:pk>/', login_required(views.edit_animal, login_url='/accounts/login/'), name='edit_animal'),
     path('animals/create/', login_required(views.create_animal, login_url='/accounts/login/'), name='create_animal'),

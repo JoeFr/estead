@@ -6,7 +6,7 @@ from . import views
 app_name = "projects"
 
 urlpatterns = [
-    path('projects/', login_required(views.ProjectList.as_view(), login_url='/accounts/login/'), name="projects"),
+    path('', login_required(views.ProjectList.as_view(), login_url='/accounts/login/'), name="projects"),
     path('projects/<int:pk>/', login_required(views.ProjectDetailView.as_view(), login_url='/accounts/login/'), name="project"),
     path('projects/edit/<int:pk>/', login_required(views.edit_project, login_url='/accounts/login/'), name='edit_project'),
     path('projects/create/', login_required(views.create_project, login_url='/accounts/login/'), name='create_project'),
