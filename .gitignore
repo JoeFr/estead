@@ -1,4 +1,6 @@
 venv
 .env
+env
 .idea
 django_project/settings.py
+django-project/django-project/settings.py
