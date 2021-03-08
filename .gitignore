@@ -1,0 +1,4 @@
+venv
+.env
+.idea
+django_project/settings.py

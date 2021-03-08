@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <h1 class="title">
+        Animal Harvests
+    </h1>
+</section>
+
+<section>
+    <div class="field is-grouped my-3">
+        <a href="{% url 'livestock:create_animal_harvest' %}">
+            <button class="button is-success">
+            <span class="icon is-small">
+              <i class="fas fa-plus"></i>
+            </span>
+                <span>New Harvest</span>
+            </button>
+        </a>
+    </div>
+</section>
+
+<section>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Animal</th>
+            <th>Type</th>
+            <th>Weight</th>
+            <th>Count</th>
+            <th>Packages</th>
+            <th><i class="fas fa-pen"></i></th>
+            <th><i class="fas fa-trash"></i></th>
+            {% for harvest in animal_harvest_list %}
+        <tr>
+            <td>{{ harvest.date|date:"d-m-Y" }}</td>
+            <td>
+               {{ harvest.animal }}
+            </td>
+            <td>
+                <span class="tag {{ harvest.type.style }}">{{ harvest.type }}</span>
+            </td>
+            <td>
+                {{ harvest.weight }}
+            </td>
+            <td>
+                {{ harvest.count }}
+            </td>
+            <td>
+                {{ harvest.packages }}
+            </td>
+            <td>
+                <a href="{% url 'livestock:edit_animal_harvest' harvest.pk %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'livestock:delete_animal_harvest' harvest.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Total harvest <strong>{{ harvests_weight_sum|floatformat:0 }}</strong></p>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<h1 class="title">Hello, {{ user.username }}</h1>
+<p>Email: {{ user.email }}</p>
+<p>First and last name: {{ user.first_name }} {{ user.last_name }}</p>
+<p>Last login: {{ user.last_login }}</p>
+<p>Date joined: {{ user.date_joined }}</p>
+<p>Groups: {{ user.groups }}</p>
+
+<h2>Profile</h2>
+<img src="{{ user.profile.image.url }}" alt="{{ user.username }}" width="200px" />
+
+<h2>Change Info</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form u_form layout='inline' %}
+    {% bootstrap_form p_form layout='inline' %}
+    <input type="submit" value="Update" class="button is-primary">
+</form>
+<p><a href="{% url 'password_change' %}" class="button ">Change password</a></p>
+
+{% endblock %}
